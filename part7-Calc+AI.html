@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>Интерактивный калькулятор</title>
+    <style>
+        .calculator-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .display {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .operation-btn {
+            background: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .operation-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .operation-btn:active {
+            transform: translateY(0);
+        }
+        .result-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .number-input {
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+        .btn-calculate {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <h1 class="text-center mb-4 text-white"><i class="bi bi-calculator"></i> Интерактивный калькулятор</h1>
+            
+            <div class="display" id="display">
+                <div>Введите числа и выберите операцию</div>
+            </div>
+
+            <div class="input-group">
+                <input type="number" class="form-control number-input" id="number1" placeholder="Первое число">
+            </div>
+            <div class="input-group">
+                <input type="number" class="form-control number-input" id="number2" placeholder="Второе число">
+            </div>
+
+            <div class="buttons-grid">
+                <button class="operation-btn" onclick="setOperation('add')">
+                    <i class="bi bi-plus-lg"></i> Сложение
+                </button>
+                <button class="operation-btn" onclick="setOperation('subtract')">
+                    <i class="bi bi-dash-lg"></i> Вычитание
+                </button>
+                <button class="operation-btn" onclick="setOperation('multiply')">
+                    <i class="bi bi-x-lg"></i> Умножение
+                </button>
+                <button class="operation-btn" onclick="setOperation('divide')">
+                    <i class="bi bi-slash-lg"></i> Деление
+                </button>
+            </div>
+
+            <button class="btn-calculate" onclick="calculate()">
+                <i class="bi bi-equals"></i> Вычислить
+            </button>
+
+            <div class="result-box" id="resultBox" style="display: none;">
+                <h4 class="text-center mb-3">Результат вычисления</h4>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let currentOperation = null;
+        let operationSymbol = '';
+
+        function setOperation(operation) {
+            const num1 = document.getElementById('number1').value;
+            const num2 = document.getElementById('number2').value;
+            
+            if (!num1 || !num2) {
+                alert('Пожалуйста, введите оба числа!');
+                return;
+            }
+
+            currentOperation = operation;
+            
+            // Устанавливаем символ операции
+            switch(operation) {
+                case 'add':
+                    operationSymbol = '+';
+                    break;
+                case 'subtract':
+                    operationSymbol = '-';
+                    break;
+                case 'multiply':
+                    operationSymbol = '×';
+                    break;
+                case 'divide':
+                    operationSymbol = '÷';
+                    break;
+            }
+
+            // Обновляем дисплей
+            document.getElementById('display').innerHTML = `
+                <strong>Выбрана операция:</strong> ${num1} ${operationSymbol} ${num2}
+            `;
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Пожалуйста, введите корректные числа!');
+                return;
+            }
+
+            if (!currentOperation) {
+                alert('Пожалуйста, выберите операцию!');
+                return;
+            }
+
+            let result;
+            let operationName = '';
+
+            switch(currentOperation) {
+                case 'add':
+                    result = num1 + num2;
+                    operationName = 'Сложение';
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    operationName = 'Вычитание';
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    operationName = 'Умножение';
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        result = 'Ошибка: деление на ноль!';
+                    } else {
+                        result = num1 / num2;
+                    }
+                    operationName = 'Деление';
+                    break;
+            }
+
+            // Показываем результат
+            document.getElementById('resultContent').innerHTML = `
+                <div class="text-center">
+                    <h5>${operationName}</h5>
+                    <div style="font-size: 2rem; color: #667eea; font-weight: bold;">
+                        ${num1} ${operationSymbol} ${num2} = ${result}
+                    </div>
+                    <small class="text-muted">${new Date().toLocaleString()}</small>
+                </div>
+            `;
+            
+            document.getElementById('resultBox').style.display = 'block';
+
+            // Прокручиваем к результату
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+
+            // Вывод в консоль
+            console.log(`${operationName}: ${num1} ${operationSymbol} ${num2} = ${result}`);
+        }
+
+        // Обработка клавиши Enter
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+
+        // Сброс при изменении чисел
+        document.getElementById('number1').addEventListener('input', resetOperation);
+        document.getElementById('number2').addEventListener('input', resetOperation);
+
+        function resetOperation() {
+            currentOperation = null;
+            document.getElementById('display').innerHTML = 'Введите числа и выберите операцию';
+            document.getElementById('resultBox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
