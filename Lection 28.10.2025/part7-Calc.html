@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>7 Калькулятор</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-content: center;">
+        <h1>Калькулятор</h1>
+    </div>
+    
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col" style="font-weight: bold;">
+      Сумма
+    </div>
+    <div class="col">
+      Разность
+    </div>
+    <div class="col">
+      Умнржение
+    </div>
+    <div class="col">
+      Деление
+    </div>
+  </div>
+</div>
+
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col" style="">
+
+    </div>
+    <div class="col">
+      <div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+</div>
+    </div>
+    <div class="col">
+      <div class="card" 4>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+</div>
+    </div>
+    <div class="col">
+      <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script type="text/javascript">
+        function calculateOperations() {
+            // Получаем числа от пользователя
+            let userNumber1 = +prompt("Пожалуйста, введите первое число:");
+            let userNumber2 = +prompt("Пожалуйста, введите второе число:");
+
+            if (isNaN(userNumber1) || isNaN(userNumber2)) {
+                alert("Пожалуйста, вводите только числа!");
+                return;
+            }
+
+            let addition = userNumber1 + userNumber2;
+            let subtraction = userNumber1 - userNumber2;
+            let multiplication = userNumber1 * userNumber2;
+            let division = userNumber2 !== 0 ? userNumber1 / userNumber2 : "Ошибка: деление на ноль!";
+
+            // Вывод в alert
+            alert(`📊 РЕЗУЛЬТАТЫ АРИФМЕТИЧЕСКИХ ВЫЧИСЛЕНИЙ:
+
+➕ Сложение: ${userNumber1} + ${userNumber2} = ${addition}
+➖ Вычитание: ${userNumber1} - ${userNumber2} = ${subtraction}
+✖️ Умножение: ${userNumber1} × ${userNumber2} = ${multiplication}
+➗ Деление: ${userNumber1} ÷ ${userNumber2} = ${division}`);
+
+            // Вывод на страницу
+            displayResultsOnPage(userNumber1, userNumber2, addition, subtraction, multiplication, division);
+
+            // Вывод в консоль
+            console.log("РЕЗУЛЬТАТЫ АРИФМЕТИЧЕСКИХ ВЫЧИСЛЕНИЙ: ");
+            console.log("Введенные числа:", userNumber1, "и", userNumber2);
+            console.log("Сложение:", addition);
+            console.log("Вычитание:", subtraction);
+            console.log("Умножение:", multiplication);
+            console.log("Деление:", division);
+        }
+
+        function displayResultsOnPage(num1, num2, add, sub, mult, div) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <h3 class="text-center mb-3">Результаты арифметических операций для чисел ${num1} и ${num2}</h3>
+                
+                <div class="result-box">
+                    <span class="operation-title">Арифметические операции:</span><br>
+                    ➕ Сложение: ${num1} + ${num2} = <strong>${add}</strong><br>
+                    ➖ Вычитание: ${num1} - ${num2} = <strong>${sub}</strong><br>
+                    ✖️ Умножение: ${num1} × ${num2} = <strong>${mult}</strong><br>
+                    ➗ Деление: ${num1} ÷ ${num2} = <strong>${div}</strong>
+                </div>
+            `;
+        }
+
+        function calculateAgain() {
+            document.getElementById('results').innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div></div>';
+            setTimeout(calculateOperations, 500);
+        }
+
+        // Запускаем калькулятор при загрузке страницы
+        window.onload = calculateOperations;
+    </script>
+</body>
+</html>
