@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>6 Проверка на палиндром</title>
+   </head>
+<body>
+    <div style="display:flex; justify-content: center; align-content: center;">
+        <h1>Проверка на палиндром</h1>
+    </div>
+
+    <style>
+        .title {
+        }
+    </style>
+
+     <script>
+        let text = prompt('Введите слово или словосочетание, которое хотите проверить на палиндромность');
+        
+        // Функция проверки на палиндром
+        function isPalindrome(str) {
+            // Очищаем строку: убираем пробелы, приводим к нижнему регистру
+            const cleanStr = str.toLowerCase().replace(/\s/g, '');
+            
+            // Разворачиваем строку и сравниваем с оригиналом
+            const reversedStr = cleanStr.split('').reverse().join('');
+            
+            return cleanStr === reversedStr;
+        }
+        
+        // Проверяем введенное слово
+        if (text) {
+            if (isPalindrome(text)) {
+                alert(text + '- это палиндром!');
+            } else {
+                alert(text + ' - не палиндром.');
+            }
+        } else {
+            alert('Вы не ввели слово!');
+        }
+
+    </script>
+
+</body>
+</html>

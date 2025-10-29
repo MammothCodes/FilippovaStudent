@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>2 Загадки с подсчетом баллов</title>
+   </head>
+<body>
+    <div style="display:flex; justify-content: center; align-content: center;">
+        <h1>Отгадки на загадки</h1>
+    </div>
+
+    <style>
+        .title {
+        }
+    </style>
+
+     <script>
+        //объявление переменных
+        let score = 0;
+        let userAnswer;
+
+        //загадка первая
+        userAnswer=+prompt('Цифра шесть перевернулась,\n новой цифрой обернулась! \n Ответ напишите числом');
+        if (isNaN(userAnswer)) {
+            userAnswer = +prompt('Введите число, а не строку');
+        } 
+        else if (userAnswer === 9) {
+            alert('Правильно! +1 балл');
+            score++;
+        } 
+        else {
+            alert('Правильный ответ: 9');
+        }
+
+        //загадка вторая
+        userAnswer=+prompt('Лебедь плавает в тетрадке, \nЗначит что-то не в порядке. \nЕсли ты совсем Незнайка, \nЦифру эту получай-ка.');
+        if (isNaN(userAnswer)) {
+            userAnswer = +prompt('Введите число, а не строку');
+        } 
+        else if (userAnswer === 2) {
+            alert('Правильно! +1 балл');
+            score++;
+        } 
+        else {
+            alert('Правильный ответ: 2');
+        }
+
+        //загадка третья
+        userAnswer=+prompt('У кошки две передние ноги, две задние, \nда еще две левые и две правые. \nСколько ног всего?');
+        if (isNaN(userAnswer)) {
+            userAnswer = +prompt('Введите число, а не строку');
+        } 
+        else if (userAnswer === 4) {
+            alert('Правильно! +1 балл');
+            score++;
+        } 
+        else {
+            alert('Правильный ответ: 4');
+        }
+
+        //загадка четвертая
+        userAnswer=+prompt('На косу она похожа,\nНо косить траву не может —\nНе наточена совсем \nИ не косит цифра …');
+        if (isNaN(userAnswer)) {
+            userAnswer = +prompt('Введите число, а не строку');
+        } 
+        else if (userAnswer === 7) {
+            alert('Правильно! +1 балл');
+            score++;
+        } 
+        else {
+            alert('Правильный ответ: 7');
+        }
+
+        //загадка пятая
+        userAnswer=+prompt('Он похож на букву О,\nОн не значит ничего.\nНо любую цифру враз\nУвеличит в десять раз.');
+        if (isNaN(userAnswer)) {
+            userAnswer = +prompt('Введите число, а не строку');
+        } 
+        else if (userAnswer === 0) {
+            alert('Правильно! +1 балл');
+            score++;
+        } 
+        else {
+            alert('Правильный ответ: 0');
+        }
+
+        // Финальный результат
+        alert('Викторина завершена! Ваш результат: '+ score + 'из 5 баллов!');
+
+        if (score === 5) {
+            alert('Потрясающе! Вы гений загадок!');
+        } 
+        else if (score >= 3) {
+            alert('Молодец! Вы ответили правильно на большую часть загадок');
+        }
+        else alert('Не переживай, в следующий раз получится лучше.');
+
+    </script>
+
+</body>
+</html>

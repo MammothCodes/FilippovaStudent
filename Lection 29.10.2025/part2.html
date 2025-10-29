@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>2 Загадки</title>
+   </head>
+<body>
+    <div style="display:flex; justify-content: center; align-content: center;">
+        <h1>Отгадки на загадки</h1>
+    </div>
+
+    <style>
+        .title {
+        }
+    </style>
+
+     <script>
+        let a=+prompt('Цифра шесть перевернулась,новой цифрой обернулась! Ответ напишите числом');
+        //if (a===9) {
+        //alert('Молодец!')
+        //} else a=+prompt('Вы не отгадали, попробуйте еще раз');
+        while (a!==9) {
+            a=+prompt('Вы не отгадали, попробуйте еще раз');
+        }
+        alert('Молодец!')
+
+        let b=+prompt('Лебедь плавает в тетрадке, Значит что-то не в порядке. Если ты совсем Незнайка, Цифру эту получай-ка.');
+        //if (b===2) {
+        //alert('Молодец!')
+        //} else b=+prompt('Вы не отгадали, попробуйте еще раз');
+        while (b!==2) {
+            a=+prompt('Вы не отгадали, попробуйте еще раз');
+        }
+        alert('Молодец!')
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>8 Угадай число</title>
+</head>
+<body>
+    <div style="display:flex; justify-content: center; align-content: center;">
+        <h1>Угадай число</h1>
+    </div>
+
+    <script>
+        // Компьютер загадывает случайное число от 1 до 100
+        const secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        let userGuess;
+
+        alert('Я загадал число от 1 до 100. Попробуй угадать!');
+
+        // Основной игровой цикл
+        while (true) {
+            userGuess = +prompt('Введите вашу догадку:');
+            attempts++;
+
+            // Проверка на корректный ввод
+            if (isNaN(userGuess)) {
+                alert('Пожалуйста, введите число!');
+                attempts--; // Не считаем некорректную попытку
+                continue;
+            }
+
+            // Проверка угадал ли пользователь
+            if (userGuess === secretNumber) {
+                alert(`🎉 Поздравляю! Вы угадали число ${secretNumber} с ${attempts} попытки!`);
+                break; // Выход из цикла
+            } 
+            // Подсказки
+            else if (userGuess < secretNumber) {
+                alert('Загаданное число БОЛЬШЕ');
+            } 
+            else {
+                alert('Загаданное число МЕНЬШЕ');
+            }
+        }
+
+        alert('Спасибо за игру!');
+    </script>
+</body>
+</html>
