@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React App</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // Компонент кнопки
+        function BasicButton() {
+            const handleClick = () => {
+                alert('Кнопка нажата!');
+            };
+
+            return (
+                <button onClick={handleClick}>
+                    Нажми меня
+                </button>
+            );
+        }
+
+        // Компонент приветствия
+        function Greeting({ name }) {
+            return <h1>Hello, {name}</h1>;
+        }
+
+        // Главный компонент приложения
+        function App() {
+            return (
+                <div>
+                    <Greeting name="world" />
+                    <BasicButton />
+                </div>
+            );
+        }
+
+        // Рендерим приложение
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
