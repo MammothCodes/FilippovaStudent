@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>7 Вывести простые числа</title>
+</head>
+<body>
+    <div style="display:flex; justify-content: center; align-content: center;">
+        <h1>Простые числа от 1 до введенного числа</h1>
+    </div>
+
+    <style>
+        .title {
+        }
+    </style>
+
+    <!-- Подключаем внешний JavaScript файл -->
+    <script src="function_part7.js"></script>
+    
+    <script>
+        // Основной код остается в HTML
+        let userNum = +prompt('Введите число');
+
+        while (isNaN(userNum) || userNum < 1) {
+            userNum = +prompt('Введите корректное число (больше 0), а не строку');
+        }
+        
+        alert('Вы ввели число! ' + userNum);
+
+        // Используем функцию из внешнего файла для поиска простых чисел
+        const primeNumbers = findPrimeNumbers(userNum);
+        
+        // Выводим результат
+        if (primeNumbers.length > 0) {
+            alert('Простые числа от 1 до ' + userNum + ':\n' + primeNumbers.join(', ') + '\n\nВсего найдено: ' + primeNumbers.length + ' простых чисел');
+        } else {
+            alert('В диапазоне от 1 до ' + userNum + ' нет простых чисел');
+        }
+    </script>
+
+</body>
+</html>
