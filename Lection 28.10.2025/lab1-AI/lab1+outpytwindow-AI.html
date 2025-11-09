@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 1 - Переменные и типы данных</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .task {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background-color: #f8f9fa;
+        }
+        .result {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторная работа 1 - Переменные и типы данных</h1>
+        
+        <div class="task">
+            <h2>Задание 1: Ввод числа</h2>
+            <div id="task1Result" class="result">
+                <!-- Результат будет выведен здесь -->
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Задание 2: Калькулятор</h2>
+            <div id="task2Result" class="result">
+                <!-- Результат будет выведен здесь -->
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Задание 3: Угадывание числа</h2>
+            <div id="task3Result" class="result">
+                <!-- Результат будет выведен здесь -->
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Задание 4: Возраст пользователя</h2>
+            <div id="task4Result" class="result">
+                <!-- Результат будет выведен здесь -->
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Дополнительное задание: Типы переменных</h2>
+            <div id="typesResult" class="result">
+                <!-- Типы переменных будут выведены здесь -->
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Контрольные вопросы</h2>
+            <div class="result">
+                <h3>1. В чем разница между var и let?</h3>
+                <p><strong>var</strong> - функция-скопленная переменная, поднимается (hoisting), может быть переопределена</p>
+                <p><strong>let</strong> - блок-скопленная переменная, не поднимается, не может быть переопределена в том же блоке</p>
+                
+                <h3>2. Какие типы данных в JavaScript вы знаете?</h3>
+                <p>Примитивные: string, number, boolean, undefined, null, symbol, bigint</p>
+                <p>Объектные: object, array, function</p>
+                
+                <h3>3. В каком типе сохраняется переменная, полученная с помощью команды prompt?</h3>
+                <p>Переменная сохраняется как <strong>string</strong> (строка), даже если пользователь ввел число.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для вывода результатов на экран
+        function displayResult(elementId, content) {
+            document.getElementById(elementId).innerHTML = content;
+        }
+
+        // Задание 1: Ввод числа
+        let userNumber = prompt("Задание 1: Введите любое число:");
+        let task1HTML = `
+            <p><strong>Введенное число:</strong> ${userNumber}</p>
+            <p><strong>Тип переменной:</strong> ${typeof userNumber}</p>
+        `;
+        displayResult('task1Result', task1HTML);
+
+        // Задание 2: Калькулятор
+        let num1 = parseFloat(prompt("Задание 2: Введите первое число для калькулятора:"));
+        let num2 = parseFloat(prompt("Задание 2: Введите второе число для калькулятора:"));
+        
+        let task2HTML = `
+            <p><strong>Числа:</strong> ${num1} и ${num2}</p>
+            <p>${num1} + ${num2} = <strong>${num1 + num2}</strong></p>
+            <p>${num1} - ${num2} = <strong>${num1 - num2}</strong></p>
+            <p>${num1} × ${num2} = <strong>${num1 * num2}</strong></p>
+            <p>${num1} ÷ ${num2} = <strong>${num1 / num2}</strong></p>
+            <p>${num1} % ${num2} = <strong>${num1 % num2}</strong> (остаток от деления)</p>
+        `;
+        displayResult('task2Result', task2HTML);
+
+        // Задание 3: Угадывание числа
+        let result = parseFloat(prompt("Задание 3: Умножьте ваше число на 2 и прибавьте 7. Введите результат:"));
+        let guessedNumber = (result - 7) / 2;
+        
+        alert("Вы задумали число: " + guessedNumber);
+        
+        let task3HTML = `
+            <p><strong>Введенный результат:</strong> ${result}</p>
+            <p><strong>Вычисленное задуманное число:</strong> ${guessedNumber}</p>
+            <p><strong>Формула:</strong> (${result} - 7) ÷ 2 = ${guessedNumber}</p>
+        `;
+        displayResult('task3Result', task3HTML);
+
+        // Задание 4: Возраст пользователя
+        let userName = prompt("Задание 4: Введите ваше имя:");
+        let birthYear = parseInt(prompt("Задание 4: Введите ваш год рождения:"));
+        let currentYear = new Date().getFullYear();
+        let age = currentYear - birthYear;
+        
+        let task4HTML = `
+            <p><strong>Имя:</strong> ${userName}</p>
+            <p><strong>Год рождения:</strong> ${birthYear}</p>
+            <p><strong>Текущий год:</strong> ${currentYear}</p>
+            <p><strong>Возраст:</strong> ${age} лет</p>
+            <p style="font-size: 18px; color: #007bff;"><strong>${userName}: ${age}</strong></p>
+        `;
+        displayResult('task4Result', task4HTML);
+
+        // Дополнительное задание: Вывод типов переменных
+        let typesHTML = `
+            <h3>Типы всех переменных:</h3>
+            <p><strong>userNumber</strong> (${userNumber}): <code>${typeof userNumber}</code></p>
+            <p><strong>num1</strong> (${num1}): <code>${typeof num1}</code></p>
+            <p><strong>num2</strong> (${num2}): <code>${typeof num2}</code></p>
+            <p><strong>result</strong> (${result}): <code>${typeof result}</code></p>
+            <p><strong>guessedNumber</strong> (${guessedNumber}): <code>${typeof guessedNumber}</code></p>
+            <p><strong>userName</strong> (${userName}): <code>${typeof userName}</code></p>
+            <p><strong>birthYear</strong> (${birthYear}): <code>${typeof birthYear}</code></p>
+            <p><strong>age</strong> (${age}): <code>${typeof age}</code></p>
+        `;
+        displayResult('typesResult', typesHTML);
+
+        // Также выводим в консоль для проверки
+        console.log("=== Результаты лабораторной работы ===");
+        console.log("Задание 1 - Введенное число:", userNumber);
+        console.log("Задание 2 - Калькулятор:", num1 + " и " + num2);
+        console.log("Задание 3 - Задуманное число:", guessedNumber);
+        console.log("Задание 4 - Возраст:", userName + ": " + age);
+    </script>
+</body>
+</html>

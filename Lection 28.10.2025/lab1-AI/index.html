@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 1 - Переменные и типы данных</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторная работа 1 - Переменные и типы данных</h1>
+        
+        <div class="controls">
+            <button onclick="runAllTasks()" class="btn btn-primary">Запустить все задания</button>
+            <button onclick="clearAllResults()" class="btn btn-secondary">Очистить все результаты</button>
+        </div>
+        
+        <div class="task">
+            <div class="task-header">
+                <h2>Задание 1: Ввод числа</h2>
+                <button onclick="runTask1()" class="btn btn-task">Выполнить задание 1</button>
+            </div>
+            <div id="task1Result" class="result">
+                Результат появится здесь после выполнения задания
+            </div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <h2>Задание 2: Калькулятор</h2>
+                <button onclick="runTask2()" class="btn btn-task">Выполнить задание 2</button>
+            </div>
+            <div id="task2Result" class="result">
+                Результат появится здесь после выполнения задания
+            </div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <h2>Задание 3: Угадывание числа</h2>
+                <button onclick="runTask3()" class="btn btn-task">Выполнить задание 3</button>
+            </div>
+            <div id="task3Result" class="result">
+                Результат появится здесь после выполнения задания
+            </div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <h2>Задание 4: Возраст пользователя</h2>
+                <button onclick="runTask4()" class="btn btn-task">Выполнить задание 4</button>
+            </div>
+            <div id="task4Result" class="result">
+                Результат появится здесь после выполнения задания
+            </div>
+        </div>
+
+        <div class="task">
+            <div class="task-header">
+                <h2>Дополнительное задание: Типы переменных</h2>
+                <button onclick="showVariableTypes()" class="btn btn-task">Показать типы переменных</button>
+            </div>
+            <div id="typesResult" class="result">
+                Типы переменных появятся здесь после выполнения заданий
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Контрольные вопросы</h2>
+            <div class="result">
+                <h3>1. В чем разница между var и let?</h3>
+                <p><strong>var</strong> - функция-скопленная переменная, поднимается (hoisting), может быть переопределена</p>
+                <p><strong>let</strong> - блок-скопленная переменная, не поднимается, не может быть переопределена в том же блоке</p>
+                
+                <h3>2. Какие типы данных в JavaScript вы знаете?</h3>
+                <p>Примитивные: string, number, boolean, undefined, null, symbol, bigint</p>
+                <p>Объектные: object, array, function</p>
+                
+                <h3>3. В каком типе сохраняется переменная, полученная с помощью команды prompt?</h3>
+                <p>Переменная сохраняется как <strong>string</strong> (строка), даже если пользователь ввел число.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="functions.js"></script>
+</body>
+</html>

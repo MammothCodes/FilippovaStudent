@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 1 - Переменные и типы данных</title>
+</head>
+<body>
+    <h1>Лабораторная работа 1</h1>
+    
+    <script>
+        // Задание 1: Ввод числа
+        let userNumber = prompt("Введите любое число:");
+        console.log("Задание 1 - Введенное число:", userNumber);
+        console.log("Тип переменной:", typeof userNumber);
+
+        // Задание 2: Калькулятор
+        let num1 = parseFloat(prompt("Введите первое число для калькулятора:"));
+        let num2 = parseFloat(prompt("Введите второе число для калькулятора:"));
+        
+        console.log("Задание 2 - Калькулятор:");
+        console.log(num1 + " + " + num2 + " = " + (num1 + num2));
+        console.log(num1 + " - " + num2 + " = " + (num1 - num2));
+        console.log(num1 + " * " + num2 + " = " + (num1 * num2));
+        console.log(num1 + " / " + num2 + " = " + (num1 / num2));
+        console.log(num1 + " % " + num2 + " = " + (num1 % num2));
+
+        // Задание 3: Угадывание числа
+        let result = parseFloat(prompt("Умножьте ваше число на 2 и прибавьте 7. Введите результат:"));
+        let guessedNumber = (result - 7) / 2;
+        alert("Вы задумали число: " + guessedNumber);
+        console.log("Задание 3 - Задуманное число:", guessedNumber);
+
+        // Задание 4: Возраст пользователя
+        let userName = prompt("Введите ваше имя:");
+        let birthYear = parseInt(prompt("Введите ваш год рождения:"));
+        let currentYear = new Date().getFullYear();
+        let age = currentYear - birthYear;
+        
+        document.write("<p><strong>" + userName + ": " + age + "</strong></p>");
+        console.log("Задание 4 - " + userName + ": " + age);
+
+        // Дополнительное задание: Вывод типов переменных
+        console.log("=== Типы переменных ===");
+        console.log("userNumber тип:", typeof userNumber);
+        console.log("num1 тип:", typeof num1);
+        console.log("num2 тип:", typeof num2);
+        console.log("result тип:", typeof result);
+        console.log("guessedNumber тип:", typeof guessedNumber);
+        console.log("userName тип:", typeof userName);
+        console.log("birthYear тип:", typeof birthYear);
+        console.log("age тип:", typeof age);
+    </script>
+</body>
+</html>
