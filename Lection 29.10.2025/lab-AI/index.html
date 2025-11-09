@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 2 - Операторы ветвления и циклы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Лабораторная работа 2</h1>
+        <h2 class="text-center mb-4">Операторы ветвления if, циклы do, while, for</h2>
+        
+        <div class="task-card">
+            <h3>Задание 1: Блок-схема</h3>
+            <button onclick="runTask1()" class="btn btn-primary">Выполнить задание 1</button>
+            <div id="task1Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 2: Счет от 1 до 10</h3>
+            <button onclick="runTask2()" class="btn btn-primary">Выполнить задание 2</button>
+            <div id="task2Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 3: Программа для застолий</h3>
+            <button onclick="runTask3()" class="btn btn-primary">Выполнить задание 3</button>
+            <div id="task3Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 4: Факториал</h3>
+            <button onclick="runTask4()" class="btn btn-primary">Выполнить задание 4</button>
+            <div id="task4Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 5: Палиндром фамилии</h3>
+            <button onclick="runTask5()" class="btn btn-primary">Выполнить задание 5</button>
+            <div id="task5Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 6: Простые числа</h3>
+            <button onclick="runTask6()" class="btn btn-primary">Выполнить задание 6</button>
+            <div id="task6Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Дополнительное задание: Угадай число</h3>
+            <button onclick="runAdditionalTask()" class="btn btn-success">Играть в "Угадай число"</button>
+            <div id="additionalTaskResult" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Контрольные вопросы</h3>
+            <div class="result">
+                <h4>1. Какие условия могут проверяться оператором if?</h4>
+                <p>Оператор if может проверять любые логические выражения:</p>
+                <ul>
+                    <li>Сравнения: ==, ===, !=, !==, >, <, >=, <=</li>
+                    <li>Логические операции: && (И), || (ИЛИ), ! (НЕ)</li>
+                    <li>Проверка существования переменных</li>
+                    <li>Проверка типов данных</li>
+                    <li>Любые выражения, возвращающие true/false</li>
+                </ul>
+
+                <h4>2. В чем отличие циклов while, do, for?</h4>
+                <ul>
+                    <li><strong>while</strong> - проверяет условие ПЕРЕД выполнением цикла</li>
+                    <li><strong>do-while</strong> - выполняет цикл как минимум ОДИН раз, затем проверяет условие</li>
+                    <li><strong>for</strong> - компактный цикл с инициализацией, условием и инкрементом в одной строке</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button onclick="runAllTasks()" class="btn btn-warning me-2">Выполнить все задания</button>
+            <button onclick="clearAllResults()" class="btn btn-secondary">Очистить все результаты</button>
+        </div>
+    </div>
+
+    <!-- ИСПРАВЛЕНА ЭТА СТРОКА: functions.js → function.js -->
+    <script src="functions.js"></script>
+</body>
+</html>
