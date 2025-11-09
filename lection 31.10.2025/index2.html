@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио 3D‑дизайнера</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background: #2c3e50;
+            color: white;
+            transition: left 0.3s;
+            padding: 20px;
+            z-index: 1000;
+        }
+        .sidebar.show {
+            left: 0;
+        }
+        .sidebar h4 {
+            margin-bottom: 20px;
+        }
+        .sidebar .nav-link {
+            color: #bdc3c7;
+        }
+        .sidebar .nav-link:hover {
+            color: white;
+        }
+        .content {
+            margin-left: 0;
+            transition: margin-left 0.3s;
+            padding: 20px;
+        }
+        .content.shifted {
+            margin-left: 250px;
+        }
+        .navbar {
+            background: #34495e;
+        }
+        .hero {
+            background: linear-gradient(135deg, #16a085, #27ae60);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .portfolio-item {
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Боковое меню -->
+<div class="sidebar" id="sidebar">
+    <h4>Меню</h4>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="#home"><i class="fas fa-home me-2"></i>Главная</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#portfolio"><i class="fas fa-images me-2"></i>Портфолио</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#services"><i class="fas fa-cogs me-2"></i>Услуги</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about"><i class="fas fa-user me-2"></i>Обо мне</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#contact"><i class="fas fa-envelope me-2"></i>Контакты</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Основной контент -->
+<div class="content" id="content">
+
+    <!-- Верхняя панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="btn btn-link text-white" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#">3D Studio</a>
+            <div class="d-none d-lg-block">
+                <span class="text-white">Портфолио 3D‑дизайнера</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section id="home" class="hero">
+        <h1>Добро пожаловать в мою студию 3D‑дизайна</h1>
+        <p class="lead">Создаю реалистичные визуализации и анимацию для ваших проектов</p>
+        <a href="#portfolio" class="btn btn-light btn-lg mt-3">Посмотреть портфолио</a>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="my-5">
+        <h2 class="text-center mb-4">Моё портфолио</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300?text=3D+Model" class="img-fluid" alt="3D-модель">
+                    <div class="p-3 bg-light">
+                        <h5>Интерьерная визуализация</h5>
+                        <p>Проект квартиры в современном стиле</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300?text=Animation" class="img-fluid" alt="Анимация">
+                    <div class="p-3 bg-light">
+                        <h5>Анимация продукта</h5>
+                        <p>Демонстрация функционала устройства</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300?text=Character" class="img-fluid" alt="Персонаж">
+                    <div class="p-3 bg-light">
+                        <h5>Персонажная анимация</h5>
+                        <p>Разработка анимированного героя</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
