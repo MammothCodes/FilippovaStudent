@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 3 - Массивы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Лабораторная работа 3</h1>
+        <h2 class="text-center mb-4">Массивы и функции</h2>
+        
+        <div class="task-card">
+            <h3>Задание 1: Среднее арифметическое положительных элементов</h3>
+            <button onclick="runTask1()" class="btn btn-primary">Выполнить задание 1</button>
+            <div id="task1Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 2: Замена отрицательных элементов их квадратами</h3>
+            <button onclick="runTask2()" class="btn btn-primary">Выполнить задание 2</button>
+            <div id="task2Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 3: Статистика по массиву</h3>
+            <button onclick="runTask3()" class="btn btn-primary">Выполнить задание 3</button>
+            <div id="task3Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Задание 4: Симулятор цветов (1,000,000 попыток)</h3>
+            <button onclick="runTask4()" class="btn btn-primary">Выполнить задание 4</button>
+            <div id="task4Result" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Дополнительное задание: Самая длинная последовательность</h3>
+            <button onclick="runAdditionalTask()" class="btn btn-success">Выполнить доп. задание</button>
+            <div id="additionalTaskResult" class="result"></div>
+        </div>
+
+        <div class="task-card">
+            <h3>Контрольные вопросы</h3>
+            <div class="result">
+                <h4>1. Какие значения могут принимать элементы массива?</h4>
+                <p>Элементы массива в JavaScript могут принимать любые значения:</p>
+                <ul>
+                    <li><strong>Примитивные типы:</strong> числа, строки, булевы значения, null, undefined, symbol, bigint</li>
+                    <li><strong>Объекты:</strong> объекты, другие массивы, функции, даты, регулярные выражения</li>
+                    <li><strong>Смешанные типы:</strong> массив может содержать элементы разных типов одновременно</li>
+                    <li><strong>Динамическое изменение:</strong> тип элементов может меняться во время выполнения программы</li>
+                </ul>
+                <p>Примеры:</p>
+                <code>let mixedArray = [1, "текст", true, null, {name: "объект"}, [1,2,3], function() {}];</code>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button onclick="runAllTasks()" class="btn btn-warning me-2">Выполнить все задания</button>
+            <button onclick="clearAllResults()" class="btn btn-secondary">Очистить все результаты</button>
+        </div>
+    </div>
+
+    <script src="functions.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>GitHub Commits Fetch</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">📊 GitHub Commits</h1>
+        <div class="text-center mb-3">
+            <button class="btn btn-primary" onclick="loadCommits()">🔄 Загрузить коммиты</button>
+        </div>
+        <div id="output"></div>
+        <div id="loading" class="text-center" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+            <p class="mt-2">Загружаем данные...</p>
+        </div>
+    </div>
+
+    <script>
+        // Асинхронная функция для загрузки коммитов
+        async function loadCommits() {
+            const output = document.getElementById('output');
+            const loading = document.getElementById('loading');
+            
+            try {
+                // Показываем индикатор загрузки
+                loading.style.display = 'block';
+                output.innerHTML = '';
+                
+                let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+                let response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                let commits = await response.json();
+                
+                // Выводим информацию о коммитах в консоль
+                console.log('Все коммиты:', commits);
+                console.log('Первый коммит:', commits[0]);
+                console.log('Автор первого коммита:', commits[0].author.login);
+                
+                // Выводим на страницу
+                displayCommits(commits);
+                
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+                output.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>❌ Ошибка!</h4>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                // Скрываем индикатор загрузки
+                loading.style.display = 'none';
+            }
+        }
+
+        // Функция для отображения коммитов на странице
+        function displayCommits(commits) {
+            const output = document.getElementById('output');
+            
+            if (commits.length === 0) {
+                output.innerHTML = '<div class="alert alert-warning">Коммиты не найдены</div>';
+                return;
+            }
+
+            // Берем первые 5 коммитов для отображения
+            const recentCommits = commits.slice(0, 5);
+            
+            output.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">📝 Последние коммиты</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">Всего коммитов: <strong>${commits.length}</strong></p>
+                        
+                        ${recentCommits.map(commit => `
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">${commit.commit.message.split('\n')[0]}</h5>
+                                    <p class="card-text">
+                                        <strong>👤 Автор:</strong> ${commit.author?.login || commit.commit.author.name}<br>
+                                        <strong>📅 Дата:</strong> ${new Date(commit.commit.author.date).toLocaleString()}<br>
+                                        <strong>🔗 SHA:</strong> <code>${commit.sha.substring(0, 7)}</code>
+                                    </p>
+                                    <a href="${commit.html_url}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                        Посмотреть на GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        `).join('')}
+                        
+                        ${commits.length > 5 ? `
+                            <div class="text-center">
+                                <small class="text-muted">Показано 5 из ${commits.length} коммитов</small>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Автоматически загружаем коммиты при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCommits();
+        });
+    </script>
+</body>
+</html>

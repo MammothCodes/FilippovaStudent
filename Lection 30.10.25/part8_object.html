@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>JSON</title>
+</head>
+<body>
+    <h1></h1>
+    <script>
+        let obj = {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+        }
+    }
+}
+
+        console.log(obj.name);
+        console.log("Имя пользователя:", obj.name);
+        console.log("Город:", obj.address.city);
+
+        let element1 = document.querySelector('h1');
+        element1.innerHTML = obj.name;
+
+        //от ИИ
+        // Вариант 1: Объявление и присвоение отдельно
+        //let element1;
+        //element1 = document.querySelector('h1');
+        //element1.innerHTML = obj.name;
+
+        // Вариант 2: Все в одной строке (рекомендуется)
+        //let element1 = document.querySelector('h1');
+        //element1.innerHTML = obj.name;
+
+        // Вариант 3: Без промежуточной переменной
+        //document.querySelector('h1').innerHTML = obj.name;
+    </script>
+</body>
+</html>

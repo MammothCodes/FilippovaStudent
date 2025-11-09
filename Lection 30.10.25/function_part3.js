@@ -39,7 +39,7 @@ function isPrimeNumber(num) {
 // Дополнительная функция для вывода результата в консоль
 function printPrimeNumbers(maxNumber) {
     const primes = findPrimeNumbers(maxNumber);
-    console.log('Простые числа от 1 до ' + maxNumber + ' , primes');
+    console.log('Простые числа от 1 до ' + maxNumber + ': ' + primes);
     console.log('Всего найдено: ' + primes.length + ' простых чисел');
     return primes;
 }
